@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, flash, redirect, url_for, request
+from flask import Blueprint, render_template, flash, redirect, url_for, request, session
 from database.database import conect_db
 from werkzeug.security import generate_password_hash
 from models.user import User
@@ -10,7 +10,9 @@ cursor = connect.cursor()
 
 systemlogin = Blueprint('systemlogin',__name__)
 
-@systemlogin.route('/')
+
+
+@systemlogin.route('/home')
 def index():
     return render_template('home.html')
 
@@ -35,6 +37,7 @@ def login():
         loggedUser = ModelUser.login(connect,user)
         if loggedUser != None:
             if loggedUser.password:
+                session['logged_in'] = True
                 flash("You're logged!")
                 return redirect(url_for('systemcontrol.mainprimary'))
             else:
@@ -42,3 +45,12 @@ def login():
         else:
             flash('User no found!','alert-danger')
     return render_template('login.html')
+
+
+
+
+@systemlogin.route('/logout')
+def logout():
+    session.pop('logged_in',None)
+    flash('You are logged out','alert-success')
+    return redirect(url_for('systemlogin.index'))

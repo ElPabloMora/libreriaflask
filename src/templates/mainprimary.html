@@ -3,5 +3,20 @@
 {% block title %}MainPrimary{% endblock %}
 
 {% block body %}
-
+<main>
+    <section>
+        <div class="container">
+            <div>
+                <h1>Libreria Pau'ls</h1>
+                <h1>Bienvenidos estas en el home</h1>
+                <form method="get" action="{{ url_for('systemlogin.signup') }}">
+                    <button type="submit" class="btn btn-primary">Registrarse</button>
+                </form>
+                <form method="get" action="{{ url_for('systemlogin.login') }}">
+                    <button type="submit" class="btn btn-primary">Iniciar session</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
 {% endblock %}
