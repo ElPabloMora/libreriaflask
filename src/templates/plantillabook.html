@@ -1,0 +1,25 @@
+{% extends 'index.html' %}
+
+
+{% block title %} {{data[1]}}{% endblock %}
+
+{% block body %}
+
+<main>
+    <section>
+        <div>
+            <div class="container">
+                <div class="card">
+                    <img src="{{data[7]}}" alt="" width="200px" height="200px">
+                    <h1>{{data[1]}}</h1>
+                    <h1>{{data[2]}}</h1>
+                    <h1>{{data[3]}}</h1>
+                    <h1>{{data[4]}}</h1>
+                    <h1>{{data[5]}}</h1>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

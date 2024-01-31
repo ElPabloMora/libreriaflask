@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+
+<main>
+    <section>
+        <h1>Libreria Paul's</h1>
+        <div>
+            <form action="{{ url_for('systemlogin.signup') }}">
+                <input class="btn btn-secondary" type="submit" value="Registrarse">
+            </form>
+            <form action="{{ url_for('systemlogin.login') }}">
+                <input class="btn btn-primary" type="submit" value="Iniciar Sesion">
+            </form>
+        </div>
+    </section>
+</main>
+
+{% endblock %}

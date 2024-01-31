@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+
+{% block title %}Libro{% endblock %}
+
+{% block body %}
+<main>
+    <section>
+        <div class="col-md-5 ">
+            <div class="container">
+            {% for dat in data %}
+            <div class="card" style="width: 18rem;">
+                <img src="{{ dat.7 }}" class="card-img-top img-thumbnail" alt="..." >
+                <div class="card-body">
+                  <h5 class="card-title">{{dat.1}}</h5>
+                  <p class="card-text">Autor : {{dat.2}}</p>
+                  <p class="card-text">Precion : {{dat.5}}</p>
+                  <a href="/libros/show/{{ dat.0 }}" class="btn btn-primary">Agregar al carrito</a>
+                </div>
+            </div>
+            {% endfor %}
+            </div>
+        </div>
+    </section>
+</main>
+
+{% endblock %}
